@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Halal Penny Screener</title>
+<meta name="description" content="Shariah screen of US-listed stocks under $5: business activity plus AAOIFI debt, cash and interest-income ratios.">
+<meta name="theme-color" content="#0f766e" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b1416" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<style>
+:root {
+  --bg: #f6f7f6; --surface: #ffffff; --surface-2: #eef1f0; --text: #14201f; --muted: #5b6b69;
+  --line: #dde3e1; --brand: #0f766e; --brand-ink: #ffffff;
+  --pass: #15803d; --pass-bg: #dcfce7; --review: #a16207; --review-bg: #fef3c7; --fail: #b91c1c; --fail-bg: #fee2e2;
+  --bar: #cbd5d3; --shadow: 0 1px 2px rgba(0,0,0,.06), 0 2px 8px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b1416; --surface: #121e20; --surface-2: #1a2a2c; --text: #e6efed; --muted: #93a7a4;
+    --line: #243638; --brand: #2dd4bf; --brand-ink: #062b27;
+    --pass: #4ade80; --pass-bg: #0f2e1c; --review: #fbbf24; --review-bg: #33270b; --fail: #f87171; --fail-bg: #3a1414;
+    --bar: #2b3f41; --shadow: none;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0b1416; --surface: #121e20; --surface-2: #1a2a2c; --text: #e6efed; --muted: #93a7a4;
+  --line: #243638; --brand: #2dd4bf; --brand-ink: #062b27;
+  --pass: #4ade80; --pass-bg: #0f2e1c; --review: #fbbf24; --review-bg: #33270b; --fail: #f87171; --fail-bg: #3a1414;
+  --bar: #2b3f41; --shadow: none;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg); color: var(--text);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header.top {
+  position: sticky; top: 0; z-index: 5; background: var(--bg);
+  padding-top: env(safe-area-inset-top); border-bottom: 1px solid var(--line);
+}
+.titlebar { display: flex; align-items: center; gap: 10px; padding: 12px 0 8px; }
+.titlebar img { width: 28px; height: 28px; border-radius: 7px; }
+.titlebar h1 { font-size: 17px; margin: 0; font-weight: 650; letter-spacing: -.01em; }
+.titlebar .sub { font-size: 12px; color: var(--muted); }
+.titlebar .spacer { flex: 1; }
+.iconbtn {
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line); background: var(--surface); color: var(--text);
+  border-radius: 10px; height: 36px; min-width: 36px; padding: 0 10px; font-size: 14px; cursor: pointer;
+}
+.search { display: flex; gap: 8px; padding-bottom: 8px; }
+.search input {
+  flex: 1; min-width: 0; height: 40px; border-radius: 10px; border: 1px solid var(--line);
+  background: var(--surface); color: var(--text); padding: 0 12px; font-size: 16px;
+}
+.chips { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: none; }
+.chips::-webkit-scrollbar { display: none; }
+.chip {
+  flex: none; border: 1px solid var(--line); background: var(--surface); color: var(--text);
+  border-radius: 999px; padding: 6px 12px; font-size: 13px; cursor: pointer; white-space: nowrap;
+}
+.chip[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: var(--brand-ink); font-weight: 600; }
+.chip .n { opacity: .75; margin-left: 4px; font-variant-numeric: tabular-nums; }
+.filters { display: none; gap: 8px; flex-wrap: wrap; padding-bottom: 10px; }
+.filters.open { display: flex; }
+.filters label { font-size: 12px; color: var(--muted); display: flex; flex-direction: column; gap: 3px; flex: 1 1 140px; }
+.filters select {
+  height: 36px; border-radius: 9px; border: 1px solid var(--line); background: var(--surface);
+  color: var(--text); padding: 0 8px; font-size: 14px;
+}
+.status { font-size: 12px; color: var(--muted); padding: 10px 0 6px; display: flex; justify-content: space-between; gap: 8px; }
+ul.list { list-style: none; margin: 0; padding: 0 0 24px; display: flex; flex-direction: column; gap: 8px; }
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow);
+  padding: 12px; cursor: pointer; display: block; width: 100%; text-align: left; color: inherit; font: inherit;
+}
+.card:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+.row1 { display: flex; align-items: baseline; gap: 8px; }
+.sym { font-weight: 700; font-size: 16px; letter-spacing: .01em; }
+.price { margin-left: auto; font-variant-numeric: tabular-nums; font-weight: 600; }
+.name { color: var(--muted); font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 2px 0 8px; }
+.badge { font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 6px; letter-spacing: .03em; }
+.badge.PASS { color: var(--pass); background: var(--pass-bg); }
+.badge.REVIEW { color: var(--review); background: var(--review-bg); }
+.badge.FAIL { color: var(--fail); background: var(--fail-bg); }
+.ratios { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.ratio .lbl { font-size: 11px; color: var(--muted); display: flex; justify-content: space-between; }
+.ratio .val { font-variant-numeric: tabular-nums; color: var(--text); font-weight: 600; }
+.ratio .val.over { color: var(--fail); }
+.track { position: relative; height: 5px; background: var(--surface-2); border-radius: 3px; margin-top: 4px; overflow: hidden; }
+.fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--pass); border-radius: 3px; }
+.fill.over { background: var(--fail); }
+.tick { position: absolute; left: 50%; top: -1px; bottom: -1px; width: 2px; background: var(--muted); opacity: .6; }
+.meta { display: flex; gap: 12px; margin-top: 8px; font-size: 12px; color: var(--muted); flex-wrap: wrap; }
+.reason { font-size: 12px; color: var(--muted); margin-top: 6px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.more { display: block; margin: 0 auto 24px; }
+.empty { text-align: center; color: var(--muted); padding: 40px 0; }
+footer { font-size: 12px; color: var(--muted); padding: 8px 0 calc(24px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); }
+footer a { color: var(--brand); }
+
+/* detail sheet */
+dialog {
+  border: none; padding: 0; margin: auto auto 0; width: 100%; max-width: 760px; max-height: 88vh;
+  border-radius: 16px 16px 0 0; background: var(--surface); color: var(--text);
+}
+dialog::backdrop { background: rgba(0,0,0,.45); }
+@media (min-width: 700px) { dialog { margin: auto; border-radius: 16px; max-width: 560px; } }
+.sheet { padding: 16px 16px calc(16px + env(safe-area-inset-bottom)); overflow-y: auto; max-height: 88vh; }
+.sheet h2 { margin: 0; font-size: 20px; }
+.sheet .sname { color: var(--muted); font-size: 13px; margin: 2px 0 12px; }
+.sheet .head { display: flex; align-items: center; gap: 8px; }
+.sheet .head .close { margin-left: auto; }
+.verdict { border-radius: 10px; padding: 10px 12px; margin-bottom: 12px; font-size: 13px; }
+.verdict.PASS { background: var(--pass-bg); } .verdict.REVIEW { background: var(--review-bg); } .verdict.FAIL { background: var(--fail-bg); }
+.verdict b { display: block; margin-bottom: 2px; }
+.verdict ul { margin: 4px 0 0; padding-left: 18px; }
+table.kv { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 12px; }
+table.kv th { text-align: left; font-weight: 500; color: var(--muted); padding: 7px 8px 7px 0; width: 48%; vertical-align: top; }
+table.kv td { padding: 7px 0; text-align: right; font-variant-numeric: tabular-nums; }
+table.kv tr + tr th, table.kv tr + tr td { border-top: 1px solid var(--line); }
+.sec-title { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin: 14px 0 4px; }
+.links { display: flex; gap: 8px; flex-wrap: wrap; }
+.links a {
+  flex: 1 1 140px; text-align: center; text-decoration: none; border: 1px solid var(--line); border-radius: 10px;
+  padding: 10px; color: var(--brand); font-weight: 600; font-size: 14px; background: var(--surface-2);
+}
+.note { font-size: 12px; color: var(--muted); margin-top: 12px; }
+.banner { background: var(--review-bg); color: var(--text); border-radius: 10px; padding: 10px 12px; font-size: 13px; margin-top: 10px; }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="titlebar">
+      <img src="icons/icon.svg" alt="" width="28" height="28">
+      <div>
+        <h1>Halal Penny Screener</h1>
+        <div class="sub" id="runinfo">Loading…</div>
+      </div>
+      <div class="spacer"></div>
+      <button class="iconbtn" id="themebtn" type="button" aria-label="Switch light or dark theme"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button>
+    </div>
+    <div class="search">
+      <input id="q" type="search" placeholder="Search symbol or company" autocomplete="off" enterkeyhint="search" aria-label="Search">
+      <button class="iconbtn" id="filterbtn" type="button" aria-expanded="false" aria-controls="filters">Filters</button>
+    </div>
+    <div class="filters" id="filters">
+      <label>Sort by
+        <select id="sort">
+          <option value="market_cap">Market cap (high → low)</option>
+          <option value="avg_volume_20d">Volume (high → low)</option>
+          <option value="price_asc">Price (low → high)</option>
+          <option value="price">Price (high → low)</option>
+          <option value="debt_ratio">Debt ratio (low → high)</option>
+          <option value="symbol">Symbol (A → Z)</option>
+        </select>
+      </label>
+      <label>Max price
+        <select id="maxprice">
+          <option value="5">Under $5</option><option value="3">Under $3</option>
+          <option value="2">Under $2</option><option value="1">Under $1</option>
+        </select>
+      </label>
+      <label>Min avg daily volume
+        <select id="minvol">
+          <option value="0">Any</option><option value="100000">100K+</option>
+          <option value="500000">500K+</option><option value="1000000">1M+</option>
+        </select>
+      </label>
+      <label>Exchange
+        <select id="exch"><option value="">All</option></select>
+      </label>
+    </div>
+    <div class="chips" role="group" aria-label="Verdict">
+      <button class="chip" type="button" data-v="PASS" aria-pressed="true">PASS<span class="n"></span></button>
+      <button class="chip" type="button" data-v="REVIEW" aria-pressed="false">REVIEW<span class="n"></span></button>
+      <button class="chip" type="button" data-v="FAIL" aria-pressed="false">FAIL<span class="n"></span></button>
+      <button class="chip" type="button" data-v="ALL" aria-pressed="false">All<span class="n"></span></button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="banner"></div>
+  <div class="status"><span id="count"></span><span id="limits"></span></div>
+  <ul class="list" id="list"></ul>
+  <button class="iconbtn more" id="more" type="button" hidden>Show more</button>
+  <div class="empty" id="empty" hidden>No stocks match.</div>
+</main>
+
+<footer class="wrap">
+  <p><b>Not investment advice and not a fatwa.</b> This is an automated screen built from public data
+  (Nasdaq Trader, Yahoo Finance prices, SEC EDGAR filings), which can be wrong or out of date. Penny stocks are
+  high-risk. Verify each company yourself or with a qualified scholar.</p>
+  <p>Method: business-activity filter plus AAOIFI Standard 21 ratios.
+  <a href="https://github.com/FaroukFRK/halal-screener-results#method">Details</a> ·
+  <a href="results/latest.csv" download>Download CSV</a></p>
+</footer>
+
+<dialog id="sheet" aria-labelledby="d-sym"><div class="sheet" id="sheetbody"></div></dialog>
+
+<script src="app.js"></script>
+</body>
+</html>

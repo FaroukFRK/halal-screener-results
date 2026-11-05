@@ -1,0 +1,15 @@
+{
+  "run_date": "2026-11-05",
+  "screened": 1768,
+  "counts": {
+    "PASS": 218,
+    "REVIEW": 471,
+    "FAIL": 1079
+  },
+  "max_price": 5.0,
+  "limits": {
+    "debt_ratio": 0.3,
+    "cash_ratio": 0.3,
+    "income_ratio": 0.05
+  }
+}

@@ -6,6 +6,8 @@
 |---|---|---|---|
 | 1768 | 218 | 471 | 1079 |
 
+**Phone app:** https://faroukfrk.github.io/halal-screener-results/ (open in Chrome → ⋮ → *Add to Home screen*)
+
 Full results: [`results/latest.csv`](results/latest.csv) · history in [`results/`](results/)
 
 ## PASS list (largest market cap first)
