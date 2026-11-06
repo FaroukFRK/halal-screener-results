@@ -1,0 +1,48 @@
+name: Daily halal screen
+
+on:
+  schedule:
+    # Mon-Fri 22:17 UTC = after the 4pm New York close (5:17pm EST / 6:17pm EDT)
+    - cron: "17 22 * * 1-5"
+  workflow_dispatch: {}   # "Run workflow" button on the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-screen
+  cancel-in-progress: false
+
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: Tests
+        run: python -m pytest -q
+
+      - name: Screen
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+        run: python -u -m screener run --results-dir . --min-rows 1000
+
+      - name: Publish
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md results/
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "Daily screen $(date -u +%Y-%m-%d)"
+            git push
+          fi
