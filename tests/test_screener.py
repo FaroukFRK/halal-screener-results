@@ -173,3 +173,9 @@ def test_adr_goes_to_review():
     assert shariah.is_adr("NOVONIX Limited - American Depository Shares")
     f = sec.extract_financials(_companyfacts())
     assert shariah.ratio_screen(f, 2.0, date(2026, 6, 1), adr=True)["status"] == "REVIEW"
+
+
+def test_clean_user_agent():
+    from screener.config import clean_user_agent
+    assert clean_user_agent('  "Name\u00a0me@x.com"\r\n') == "Name me@x.com"
+    assert clean_user_agent("Name\nme@x.com") == "Name me@x.com"

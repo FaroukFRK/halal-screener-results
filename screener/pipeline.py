@@ -19,16 +19,20 @@ def run(tickers: list[str] | None = None, limit: int | None = None, s: Settings 
     web = Client(GENERIC_USER_AGENT, min_interval=s.yahoo_min_interval)
     sec_api = sec.SecClient(Client(sec_ua, min_interval=s.sec_min_interval))
 
-    log("1/4 Loading US listed symbols (Nasdaq Trader)...")
+    log("1/3 Loading US listed symbols (Nasdaq Trader)...")
     secs = universe.load_universe(web)
     if tickers:
         wanted = {t.upper() for t in tickers}
         secs = [x for x in secs if x.symbol.upper() in wanted]
     log(f"    {len(secs)} common stocks")
 
+    log("    SEC ticker map (checked first so a bad SEC setting fails fast)...")
+    cik_map = sec_api.ticker_map()
+    log(f"    {len(cik_map)} SEC tickers")
+
     detail = {}
     if prices_from:
-        log(f"2/4 Reusing prices from {prices_from} (no Yahoo calls)")
+        log(f"2/3 Reusing prices from {prices_from} (no Yahoo calls)")
         with open(prices_from, newline="", encoding="utf-8") as fh:
             for r in csv.DictReader(fh):
                 if r.get("price"):
@@ -37,7 +41,7 @@ def run(tickers: list[str] | None = None, limit: int | None = None, s: Settings 
                                    "avg_volume_20d": int(float(r["avg_volume_20d"])) if r.get("avg_volume_20d") else None}
         closes = {k: v["price"] for k, v in detail.items()}
     else:
-        log("2/4 Last closes (Yahoo)...")
+        log("2/3 Last closes (Yahoo)...")
         closes = prices.last_closes(web, [x.yahoo_symbol for x in secs], log)
     if not tickers and not prices_from and len(closes) < 0.8 * len(secs):
         raise RuntimeError(f"Prices found for only {len(closes)} of {len(secs)} stocks: price source likely blocked.")
@@ -47,10 +51,8 @@ def run(tickers: list[str] | None = None, limit: int | None = None, s: Settings 
         penny = penny[:limit]
     log(f"    {len(penny)} under ${s.max_price:g} (no price for {len(secs) - len(closes)})")
 
-    log("3/4 SEC ticker map...")
-    cik_map = sec_api.ticker_map()
 
-    log("4/4 Screening each stock (SEC filings + 20-day volume)...")
+    log("3/3 Screening each stock (SEC filings + 20-day volume)...")
     rows = []
     for i, x in enumerate(penny, 1):
         row = {"symbol": x.symbol, "name": x.name, "exchange": x.exchange,

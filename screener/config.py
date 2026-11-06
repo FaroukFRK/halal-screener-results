@@ -25,13 +25,19 @@ class Settings:
 SETTINGS = Settings()
 
 
+def clean_user_agent(raw: str) -> str:
+    """Tidy a pasted value: line breaks/odd spaces -> single spaces, no surrounding quotes, printable ASCII only."""
+    ua = " ".join(raw.split()).strip().strip("'\"").strip()
+    return "".join(ch for ch in ua if 32 <= ord(ch) < 127)
+
+
 def sec_user_agent() -> str:
     """SEC requires a User-Agent that names you and gives a contact email.
 
     Set it once, e.g.  export SEC_USER_AGENT="Your Name your@email.com"
     See https://www.sec.gov/os/accessing-edgar-data
     """
-    ua = os.environ.get("SEC_USER_AGENT", "").strip()
+    ua = clean_user_agent(os.environ.get("SEC_USER_AGENT", ""))
     if not ua or "@" not in ua:
         raise RuntimeError(
             'SEC_USER_AGENT is not set. SEC requires "Name email@domain" '
