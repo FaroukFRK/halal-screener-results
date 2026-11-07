@@ -1,10 +1,10 @@
 {
-  "run_date": "2026-11-06",
-  "screened": 1768,
+  "run_date": "2026-11-07",
+  "screened": 1762,
   "counts": {
     "PASS": 215,
-    "REVIEW": 473,
-    "FAIL": 1080
+    "REVIEW": 465,
+    "FAIL": 1082
   },
   "max_price": 5.0,
   "limits": {
