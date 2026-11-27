@@ -1,6 +1,6 @@
 # Halal penny-stock screen
 
-**Last run:** 2026-11-26 · US-listed common stocks (Nasdaq, NYSE, NYSE American; no OTC) with a last close under **$5**.
+**Last run:** 2026-11-27 · US-listed common stocks (Nasdaq, NYSE, NYSE American; no OTC) with a last close under **$5**.
 
 | Screened | PASS | REVIEW | FAIL |
 |---|---|---|---|
@@ -18,18 +18,18 @@ Full results: [`results/latest.csv`](results/latest.csv) · history in [`results
 | PGEN | Precigen, Inc. - Common Stock | $4.69 | $1.7B | 6% | 3% | 0% | 7995625 |
 | MNKD | MannKind Corporation - Common Stock | $4.06 | $1.3B | 25% | 7% | 2% | 3736570 |
 | SVRA | Savara, Inc. - Common Stock | $4.59 | $1.0B | 3% | 13% | 0% | 4621335 |
-| EVLV | Evolv Technologies Holdings, Inc. - Class A C | $4.34 | $787.2M | 4% | 8% | 1% | 2703700 |
+| EVLV | Evolv Technologies Holdings, Inc. - Class A C | $4.34 | $787.2M | 4% | 8% | 1% | 2704255 |
 | LXRX | Lexicon Pharmaceuticals, Inc. - Common Stock | $1.76 | $783.6M | 7% | 23% | 0% | 2494700 |
 | LZ | LegalZoom.com, Inc. - Common Stock | $4.74 | $782.9M | 0% | 23% | 1% | 2582535 |
 | NEWP | New Pacific Metals Corp. Common Shares | $4.26 | $732.3M | 0% | 2% | 0% | 820885 |
 | USAS | Americas Gold and Silver Corporation Common S | $1.91 | $612.0M | 0% | 21% | 0% | 6214825 |
 | ZJYL | JIN MEDICAL INTERNATIONAL LTD. - Class A Ordi | $3.87 | $605.8M | 3% | 5% | 4% | 254830 |
-| ASM | Avino Silver & Gold Mines Ltd. Common Shares  | $3.69 | $598.9M | 0% | 17% | 0% | 4455795 |
+| ASM | Avino Silver & Gold Mines Ltd. Common Shares  | $3.69 | $598.9M | 0% | 17% | 0% | 4456880 |
 | GROY | Gold Royalty Corp. Common Shares | $2.65 | $595.0M | 0% | 2% | 0% | 1906805 |
 | BW | Babcock & Wilcox Enterprises, Inc. Common Sto | $3.74 | $544.0M | 10% | 14% | 0% | 5735865 |
 | OIO | OIO Group - Ordinary Shares | $1.53 | $532.5M | 1% | 0% | 0% | 102735 |
 | GAU | Galiano Gold Inc. | $1.90 | $493.6M | 0% | 22% | 1% | 2502780 |
-| KOPN | Kopin Corporation - Common Stock | $2.65 | $492.9M | 1% | 5% | 3% | 3817910 |
+| KOPN | Kopin Corporation - Common Stock | $2.65 | $492.9M | 1% | 5% | 3% | 3818925 |
 | HNST | The Honest Company, Inc. - Common Stock | $4.47 | $487.6M | 0% | 21% | 0% | 3003005 |
 | AQST | Aquestive Therapeutics, Inc. - Common Stock | $3.80 | $477.6M | 12% | 19% | 0% | 2614675 |
 | GYRE | Gyre Therapeutics, Inc. - Common Stock | $4.14 | $477.4M | 0% | 12% | 0% | 286705 |
@@ -37,9 +37,9 @@ Full results: [`results/latest.csv`](results/latest.csv) · history in [`results
 | MDXG | MiMedx Group, Inc - Common Stock | $3.15 | $459.7M | 0% | 26% | 1% | 1763145 |
 | SRTA | Strata Critical Medical, Inc. - Class A Commo | $4.82 | $430.5M | 0% | 10% | 0% | 1348730 |
 | IRD | Opus Genetics, Inc. - Common Stock | $4.39 | $424.3M | 8% | 21% | 0% | 1025455 |
-| LVWR | LiveWire Group, Inc. Common Stock | $1.99 | $408.8M | 19% | 10% | 0% | 8295670 |
+| LVWR | LiveWire Group, Inc. Common Stock | $1.99 | $408.8M | 19% | 10% | 0% | 8298710 |
 | CERS | Cerus Corporation - Common Stock | $2.01 | $405.9M | 16% | 14% | 0% | 3229735 |
-| UAMY | United States Antimony Corporation Common Sto | $2.21 | $330.0M | 0% | 9% | 0% | 5774865 |
+| UAMY | United States Antimony Corporation Common Sto | $2.21 | $330.0M | 0% | 9% | 0% | 5775715 |
 | STLN | Starling Oncology, Inc. - Common Stock | $3.19 | $325.4M | 23% | 11% | 0% | 5808460 |
 | ATER | Aterian, Inc. - Common Stock | $1.17 | $307.7M | 0% | 0% | 0% | 195730 |
 | SMRT | SmartRent, Inc. Class A Common Stock | $1.58 | $299.9M | 0% | 30% | 3% | 1357765 |
@@ -50,14 +50,14 @@ Full results: [`results/latest.csv`](results/latest.csv) · history in [`results
 | TMCI | Treace Medical Concepts, Inc. - Common Stock | $4.15 | $272.1M | 22% | 15% | 0% | 359450 |
 | ITRG | Integra Resources Corp. Common Shares | $1.48 | $269.5M | 0% | 24% | 0% | 2333230 |
 | VFF | Village Farms International, Inc. - Common Sh | $2.19 | $267.9M | 14% | 30% | 1% | 1492535 |
-| REI | Ring Energy, Inc. Common Stock | $1.02 | $265.8M | 0% | 1% | 0% | 2938480 |
+| REI | Ring Energy, Inc. Common Stock | $1.02 | $265.8M | 0% | 1% | 0% | 2939165 |
 | PYXS | Pyxis Oncology, Inc. - Common Stock | $2.11 | $252.4M | 0% | 22% | 4% | 1040325 |
 | SSII | SS Innovations International Inc. - Common St | $1.24 | $248.7M | 7% | 7% | 0% | 152410 |
 | HLP | Hongli Group Inc. - Class A Ordinary Shares | $3.35 | $246.0M | 5% | 1% | 0% | 426820 |
 | VNDA | Vanda Pharmaceuticals Inc. - Common Stock | $3.90 | $235.8M | 0% | 26% | 0% | 1410010 |
 | ALTO | Alto Ingredients, Inc. - Common Stock | $3.03 | $235.0M | 25% | 11% | 0% | 1220970 |
 | DSY | Big Tree Cloud Holdings Limited - Class A Ord | $2.49 | $216.6M | 0% | 1% | 2% | 3645 |
-| TRX | TRX Gold Corporation Common Stock | $0.74 | $210.8M | 0% | 4% | 0% | 1538585 |
+| TRX | TRX Gold Corporation Common Stock | $0.74 | $210.8M | 0% | 4% | 0% | 1539125 |
 | TDUP | ThredUp Inc. - Class A Common Stock | $1.55 | $205.9M | 9% | 27% | 0% | 1964450 |
 | LCTX | Lineage Cell Therapeutics, Inc. Common Stock | $0.79 | $199.8M | 0% | 23% | 0% | 2223110 |
 | MKDW | MKDWELL Tech Inc. - Ordinary Shares | $1.40 | $197.5M | 3% | 0% | 0% | 3426126 |
@@ -69,7 +69,7 @@ Full results: [`results/latest.csv`](results/latest.csv) · history in [`results
 | IMPP | Imperial Petroleum Inc. - Common Shares | $3.93 | $175.5M | 0% | 3% | 4% | 280070 |
 | LTRX | Lantronix, Inc. - Common Stock | $3.68 | $172.8M | 3% | 30% | 0% | 1085310 |
 | CLAR | Clarus Corporation - Common Stock | $4.40 | $168.5M | 0% | 12% | 0% | 412315 |
-| SLSN | Solesence, Inc. - Common stock | $2.26 | $159.7M | 4% | 1% | 0% | 1329220 |
+| SLSN | Solesence, Inc. - Common stock | $2.26 | $159.7M | 4% | 1% | 0% | 1335760 |
 | DHX | DHI Group, Inc. Common Stock | $3.62 | $153.8M | 20% | 2% | 0% | 255775 |
 | KRMD | KORU Medical Systems, Inc. - Common Stock | $3.52 | $152.7M | 0% | 5% | 0% | 227455 |
 | CXDO | Crexendo, Inc. - Common Stock | $4.50 | $150.2M | 3% | 15% | 1% | 259430 |
@@ -84,13 +84,13 @@ Full results: [`results/latest.csv`](results/latest.csv) · history in [`results
 | FF | FutureFuel Corp.  Common shares | $2.83 | $124.1M | 0% | 17% | 4% | 1144325 |
 | CHOW | ChowChow Cloud International Holdings Limited | $3.23 | $114.6M | 1% | 2% | 0% | 3807655 |
 | NEOV | NeoVolta Inc. - Common Stock | $1.83 | $108.2M | 18% | 27% | 1% | 946255 |
-| RSSS | Research Solutions, Inc - Common Stock | $3.14 | $107.2M | 0% | 12% | 0% | 712585 |
-| OSS | One Stop Systems, Inc. - Common Stock | $4.28 | $107.2M | 0% | 18% | 0% | 1348450 |
+| RSSS | Research Solutions, Inc - Common Stock | $3.14 | $107.2M | 0% | 12% | 0% | 713135 |
+| OSS | One Stop Systems, Inc. - Common Stock | $4.28 | $107.2M | 0% | 18% | 0% | 1349065 |
 | JLHL | Julong Holding Limited - Class A Ordinary Sha | $4.95 | $106.2M | 1% | 8% | 0% | 210455 |
 | ORGO | Organogenesis Holdings Inc.  - Class A | $0.80 | $103.6M | 0% | 26% | 0% | 1036635 |
 | XGN | Exagen Inc. - Common Stock | $3.97 | $101.3M | 23% | 28% | 0% | 837795 |
 | NRXP | NRX Pharmaceuticals, Inc. - Common Stock | $2.18 | $96.6M | 0% | 21% | 1% | 1896430 |
-| OMH | Ohmyhome Limited - Class A Ordinary Shares | $4.05 | $90.2M | 1% | 4% | 0% | 15067910 |
+| OMH | Ohmyhome Limited - Class A Ordinary Shares | $4.05 | $90.2M | 1% | 4% | 0% | 15071230 |
 | STXS | Stereotaxis, Inc. Common Stock | $0.89 | $89.8M | 3% | 4% | 0% | 1134250 |
 | SKYX | SKYX Platforms Corp. - Common Stock | $0.56 | $89.8M | 19% | 23% | 0% | 1098215 |
 | AEI | Alset Inc. - Common Stock | $2.27 | $88.3M | 0% | 11% | 0% | 128146 |
@@ -102,7 +102,7 @@ Full results: [`results/latest.csv`](results/latest.csv) · history in [`results
 | VCIG | VCI Global Limited - Ordinary Share | $2.81 | $73.9M | 0% | 3% | 0% | 1789365 |
 | HMR | Heidmar Maritime Holdings Corp. - Common Stoc | $1.21 | $70.7M | 0% | 26% | 0% | 184520 |
 | MGN | Megan Holdings Limited - Class A Ordinary Sha | $4.29 | $69.7M | 0% | 10% | 0% | 537105 |
-| GNS | Genius Group Limited Ordinary Shares | $0.44 | $69.5M | 12% | 3% | 0% | 1687805 |
+| GNS | Genius Group Limited Ordinary Shares | $0.44 | $69.5M | 12% | 3% | 0% | 1694763 |
 | NIXX | Nixxy, Inc. - Common Stock | $2.34 | $68.7M | 1% | 1% | 0% | 28334 |
 | NRXS | Neuraxis, Inc. Common Stock | $4.82 | $68.4M | 1% | 7% | 0% | 176325 |
 | EEIQ | EpicQuest Education Group International Limit | $2.89 | $67.6M | 1% | 8% | 0% | 9015 |
@@ -121,7 +121,7 @@ Full results: [`results/latest.csv`](results/latest.csv) · history in [`results
 | PODC | PodcastOne, Inc. - Common Stock | $1.77 | $55.4M | 0% | 13% | 0% | 112245 |
 | MRDN | Meridian Holdings Inc. - Common Stock | $4.24 | $53.8M | 14% | 30% | 0% | 49910 |
 | LFVN | Lifevantage Corporation - Common Stock | $4.24 | $53.8M | 0% | 26% | 0% | 76850 |
-| STAK | STAK Inc. - Class A Ordinary Shares | $2.74 | $52.6M | 25% | 8% | 0% | 5409210 |
+| STAK | STAK Inc. - Class A Ordinary Shares | $2.74 | $52.6M | 25% | 8% | 0% | 5416225 |
 | VRCA | Verrica Pharmaceuticals Inc. - Common Stock | $3.05 | $52.4M | 22% | 28% | 3% | 67420 |
 | FATN | FatPipe, Inc. - common stock | $3.68 | $52.0M | 9% | 6% | 1% | 35730 |
 | FFTT | Masonglory Limited - Class A Ordinary Shares | $3.00 | $50.9M | 0% | 1% | 0% | 38155 |
@@ -151,7 +151,7 @@ Full results: [`results/latest.csv`](results/latest.csv) · history in [`results
 | BOF | BranchOut Food Inc. - Common Stock | $1.72 | $33.8M | 24% | 1% | 0% | 70100 |
 | MAMO | Massimo Group - Common Stock | $0.79 | $33.0M | 0% | 10% | 0% | 21050 |
 | ACCL | Acco Group Holdings Limited - Class A Ordinar | $2.34 | $32.6M | 0% | 20% | 0% | 4910 |
-| QTEX | QTREX Quantum Ltd. - Ordinary Shares | $0.90 | $32.3M | 0% | 10% | 0% | 3220300 |
+| QTEX | QTREX Quantum Ltd. - Ordinary Shares | $0.90 | $32.3M | 0% | 10% | 0% | 3221880 |
 | DAIO | Data I/O Corporation - Common Stock | $2.62 | $32.2M | 0% | 29% | 1% | 31315 |
 | GRDX | GridAI Technologies Corp.  - Common Stock | $3.09 | $31.7M | 6% | 1% | 0% | 167400 |
 | YSXT | YSX Tech. Co., Ltd  - Class A Ordinary Shares | $1.31 | $31.5M | 0% | 19% | 0% | 5205 |
@@ -178,7 +178,7 @@ Full results: [`results/latest.csv`](results/latest.csv) · history in [`results
 | HKPD | Cellyan Biotechnology Co., Ltd  - Class A Ord | $1.37 | $22.4M | 9% | 2% | 0% | 27175 |
 | IGC | IGC Pharma, Inc. Common Stock | $0.19 | $22.2M | 4% | 2% | 0% | 537430 |
 | TOMZ | TOMI Environmental Solutions, Inc. - Common S | $2.21 | $22.1M | 3% | 1% | 2% | 38270 |
-| ELWT | Elauwit Connection, Inc. - Common Stock | $3.14 | $20.8M | 0% | 13% | 0% | 21895 |
+| ELWT | Elauwit Connection, Inc. - Common Stock | $3.14 | $20.8M | 0% | 13% | 0% | 22485 |
 | CPHI | China Pharma Holdings, Inc. Common Stock | $0.47 | $20.2M | 19% | 18% | 0% | 82180 |
 | RECT | Rectitude Holdings Ltd - Ordinary Shares | $1.34 | $19.4M | 16% | 24% | 0% | 5545 |
 | COCP | Cocrystal Pharma, Inc. - Common Stock | $0.98 | $18.9M | 0% | 26% | 0% | 30260 |
@@ -199,10 +199,10 @@ Full results: [`results/latest.csv`](results/latest.csv) · history in [`results
 | EXYN | Exyn Technologies, Inc. - Common Stock | $1.52 | $12.1M | 12% | 18% | 0% | 61845 |
 | ZDAI | DirectBooking Technology Co., Ltd. - Class A  | $1.44 | $12.1M | 7% | 1% | 0% | 4325 |
 | LHAI | Linkhome Holdings Inc. - Common stock | $0.63 | $11.9M | 0% | 22% | 0% | 170410 |
-| CETY | Clean Energy Technologies, Inc. - Common Stoc | $0.91 | $11.1M | 29% | 0% | 0% | 24615 |
+| CETY | Clean Energy Technologies, Inc. - Common Stoc | $0.91 | $11.1M | 29% | 0% | 0% | – |
 | NTRP | NextTrip, Inc. - Common Stock | $0.72 | $11.0M | 4% | 10% | 0% | 74850 |
 | BSEM | BioStem Technologies, Inc. - Common Stock | $0.55 | $10.5M | 10% | 9% | 0% | 328840 |
-| AKAN | Akanda Corp. - Common Shares | $4.82 | $9.6M | 2% | 26% | 1% | 23714050 |
+| AKAN | Akanda Corp. - Common Shares | $4.82 | $9.6M | 2% | 26% | 1% | 23720455 |
 | QNME | Quanome Technologies, Inc. - Common Stock | $0.27 | $9.5M | 1% | 7% | 4% | 1070785 |
 | GDTC | CytoMed Therapeutics Limited - Ordinary Share | $0.79 | $9.3M | 3% | 18% | 0% | 12555 |
 | JCTC | Jewett-Cameron Trading Company - Common Share | $2.62 | $9.2M | 0% | 20% | 0% | 4840 |
@@ -210,9 +210,9 @@ Full results: [`results/latest.csv`](results/latest.csv) · history in [`results
 | FUSE | Fusemachines Inc. - Common stock | $0.25 | $8.1M | 20% | 18% | 0% | 100810 |
 | EUDA | Euda Health Holdings Limited - Class A Ordina | $4.17 | $7.9M | 0% | 4% | 0% | 89375 |
 | MMA | Mixed Martial Arts Group Limited Ordinary Sha | $0.25 | $7.8M | 0% | 27% | 0% | 421480 |
-| SLGB | Smart Logistics Global Limited - Class A Ordi | $0.15 | $6.5M | 0% | 7% | 0% | 20436210 |
+| SLGB | Smart Logistics Global Limited - Class A Ordi | $0.15 | $6.5M | 0% | 7% | 0% | 20437180 |
 | BLIN | Bridgeline Digital, Inc. - Common Stock | $0.50 | $6.3M | 3% | 23% | 0% | 55860 |
-| PLAG | Planet Green Holdings Corp. Common Stock | $0.43 | $6.1M | 0% | 6% | 0% | 4915685 |
+| PLAG | Planet Green Holdings Corp. Common Stock | $0.43 | $6.1M | 0% | 6% | 0% | 4945205 |
 | PRSO | Peraso Inc. - Common Stock | $0.27 | $5.6M | 0% | 11% | 0% | 432825 |
 | GITS | Global Interactive Technologies, Inc. Common  | $1.15 | $5.6M | 1% | 4% | 0% | 27210 |
 | TPST | Tempest Therapeutics, Inc. - Common Stock | $0.27 | $5.4M | 0% | 17% | 0% | 791200 |
